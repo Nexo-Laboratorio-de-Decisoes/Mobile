@@ -46,3 +46,7 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Ferramentas e evidências locais (não fazem parte do app).
+.tools/
+/test-output/

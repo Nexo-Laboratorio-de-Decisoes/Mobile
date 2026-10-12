@@ -1,7 +1,7 @@
 name: nexo
-description: "A new Flutter project."
+description: "NEXO: missões educativas sobre aplicações civis da tecnologia nuclear."
 publish_to: 'none'
-version: 0.1.0+1
+version: 1.0.0+1
 
 environment:
   sdk: ^3.13.2
@@ -15,3 +15,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/nexo_logo.png

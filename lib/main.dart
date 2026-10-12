@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:nexo/pages/identificacao_page.dart';
+import 'package:nexo/tema.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const NexoApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class NexoApp extends StatelessWidget {
+  const NexoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+    return MaterialApp(
+      title: 'NEXO — Laboratório de Decisões',
+      debugShowCheckedModeBanner: false,
+      theme: criarTema(),
+      home: const IdentificacaoPage(),
     );
   }
 }
