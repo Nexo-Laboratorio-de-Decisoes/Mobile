@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nexo/pages/mapa_missoes_page.dart';
 import 'package:nexo/tema.dart';
 
 class IdentificacaoPage extends StatefulWidget {
@@ -24,8 +25,8 @@ class _IdentificacaoPageState extends State<IdentificacaoPage> {
     if (!_formKey.currentState!.validate()) return;
     FocusScope.of(context).unfocus();
     final apelido = _apelidoController.text.trim();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Boas-vindas ao NEXO, $apelido!')),
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => MapaMissoesPage(apelido: apelido)),
     );
   }
 
