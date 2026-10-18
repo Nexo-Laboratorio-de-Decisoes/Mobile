@@ -34,13 +34,18 @@ class _MapaMissoesPageState extends State<MapaMissoesPage> {
 
   Future<void> abrirMissao(Cenario cenario) async {
     final decisao = await Navigator.of(context).push<Decisao>(
-      MaterialPageRoute(builder: (context) => CenarioPage(cenario: cenario, apelido: widget.apelido)),
+      MaterialPageRoute(
+        builder: (context) =>
+            CenarioPage(cenario: cenario, apelido: widget.apelido),
+      ),
     );
     if (!mounted || decisao == null) return;
 
     // Uma única decisão por cenário: refazer troca a escolha, não soma pontos.
     setState(() {
-      final indice = _decisoes.indexWhere((item) => item.cenarioId == decisao.cenarioId);
+      final indice = _decisoes.indexWhere(
+        (item) => item.cenarioId == decisao.cenarioId,
+      );
       if (indice == -1) {
         _decisoes.add(decisao);
       } else {
@@ -55,7 +60,13 @@ class _MapaMissoesPageState extends State<MapaMissoesPage> {
 
   void abrirProgresso() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => ProgressoPage(apelido: widget.apelido, decisoes: List.of(_decisoes), cenarios: cenariosMock)),
+      MaterialPageRoute(
+        builder: (context) => ProgressoPage(
+          apelido: widget.apelido,
+          decisoes: List.of(_decisoes),
+          cenarios: cenariosMock,
+        ),
+      ),
     );
   }
 
@@ -64,8 +75,19 @@ class _MapaMissoesPageState extends State<MapaMissoesPage> {
     final textos = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('NEXO', style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 3)),
-        actions: [IconButton(key: const Key('abrir_progresso'), onPressed: abrirProgresso, tooltip: 'Meu progresso', icon: const Icon(Icons.person_outline_rounded)), const SizedBox(width: 8)],
+        title: const Text(
+          'NEXO',
+          style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 3),
+        ),
+        actions: [
+          IconButton(
+            key: const Key('abrir_progresso'),
+            onPressed: abrirProgresso,
+            tooltip: 'Meu progresso',
+            icon: const Icon(Icons.person_outline_rounded),
+          ),
+          const SizedBox(width: 8),
+        ],
       ),
       body: SafeArea(
         child: Center(
@@ -77,20 +99,46 @@ class _MapaMissoesPageState extends State<MapaMissoesPage> {
               children: [
                 Text('Olá, ${widget.apelido}!', style: textos.bodyLarge),
                 const SizedBox(height: 8),
-                Text('Qual será sua\npróxima descoberta?', style: textos.headlineLarge),
+                Text(
+                  'Qual será sua\npróxima descoberta?',
+                  style: textos.headlineLarge,
+                ),
                 const SizedBox(height: 24),
-                ResumoProgresso(concluidas: _decisoes.length, total: cenariosMock.length),
+                ResumoProgresso(
+                  concluidas: _decisoes.length,
+                  total: cenariosMock.length,
+                ),
                 const SizedBox(height: 24),
                 Text('Mapa de missões', style: textos.titleLarge),
                 const SizedBox(height: 8),
-                const Text('Cinco áreas. Novas formas de olhar para a ciência.'),
+                const Text(
+                  'Cinco áreas. Novas formas de olhar para a ciência.',
+                ),
                 const SizedBox(height: 16),
                 for (final cenario in cenariosMock)
-                  MissaoCard(cenario: cenario, concluida: _decisoes.any((item) => item.cenarioId == cenario.id), onTap: () => abrirMissao(cenario)),
+                  MissaoCard(
+                    cenario: cenario,
+                    concluida: _decisoes.any(
+                      (item) => item.cenarioId == cenario.id,
+                    ),
+                    onTap: () => abrirMissao(cenario),
+                  ),
                 const SizedBox(height: 8),
-                TextButton.icon(onPressed: abrirProgresso, icon: const Icon(Icons.insights_outlined), label: const Text('Ver meu progresso')),
+                TextButton.icon(
+                  onPressed: abrirProgresso,
+                  icon: const Icon(Icons.insights_outlined),
+                  label: const Text('Ver meu progresso'),
+                ),
                 const SizedBox(height: 16),
-                const Text('Cenários fictícios para aprender com escolhas.\nNão existe uma solução melhor para todo contexto.', textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: textoSecundario, height: 1.5)),
+                const Text(
+                  'Cenários fictícios para aprender com escolhas.\nNão existe uma solução melhor para todo contexto.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: textoSecundario,
+                    height: 1.5,
+                  ),
+                ),
               ],
             ),
           ),

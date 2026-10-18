@@ -26,17 +26,22 @@ class _CenarioPageState extends State<CenarioPage> {
     setState(() => _abrindoConsequencia = true);
 
     final concluiu = await Navigator.of(context).push<bool>(
-      MaterialPageRoute(builder: (context) => ConsequenciaPage(cenario: widget.cenario, alternativa: alternativa)),
+      MaterialPageRoute(
+        builder: (context) =>
+            ConsequenciaPage(cenario: widget.cenario, alternativa: alternativa),
+      ),
     );
     if (!mounted) return;
     if (concluiu == true) {
       // Retorna ao mapa com dados somente depois da confirmação no feedback.
-      Navigator.of(context).pop(Decisao(
-        cenarioId: widget.cenario.id,
-        alternativaId: alternativa.id,
-        apelido: widget.apelido,
-        dataEscolha: DateTime.now(),
-      ));
+      Navigator.of(context).pop(
+        Decisao(
+          cenarioId: widget.cenario.id,
+          alternativaId: alternativa.id,
+          apelido: widget.apelido,
+          dataEscolha: DateTime.now(),
+        ),
+      );
     } else {
       setState(() => _abrindoConsequencia = false);
     }
@@ -56,31 +61,63 @@ class _CenarioPageState extends State<CenarioPage> {
               key: const Key('conteudo_cenario'),
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
               children: [
-                Row(children: [
-                  Icon(iconeCategoria(cenario.categoria), color: const Color(0xFF007A96)),
-                  const SizedBox(width: 8),
-                  const Expanded(child: Text('INVESTIGUE O CENÁRIO', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800, letterSpacing: 1.2, color: Color(0xFF007A96)))),
-                ]),
+                Row(
+                  children: [
+                    Icon(
+                      iconeCategoria(cenario.categoria),
+                      color: const Color(0xFF007A96),
+                    ),
+                    const SizedBox(width: 8),
+                    const Expanded(
+                      child: Text(
+                        'INVESTIGUE O CENÁRIO',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.2,
+                          color: Color(0xFF007A96),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 16),
                 Text(cenario.titulo, style: textos.headlineLarge),
                 const SizedBox(height: 16),
                 Text(cenario.situacao, style: textos.bodyLarge),
                 const SizedBox(height: 16),
-                const Text('Situação fictícia • experiência educativa', style: TextStyle(fontSize: 12)),
+                const Text(
+                  'Situação fictícia • experiência educativa',
+                  style: TextStyle(fontSize: 12),
+                ),
                 const SizedBox(height: 24),
                 Container(
                   padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(color: const Color(0xFFE7F4FA), borderRadius: BorderRadius.circular(16)),
-                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Text('O que você vai descobrir', style: textos.titleMedium),
-                    const SizedBox(height: 8),
-                    Text(cenario.objetivoEducacional),
-                  ]),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE7F4FA),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'O que você vai descobrir',
+                        style: textos.titleMedium,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(cenario.objetivoEducacional),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 24),
-                Text('Qual caminho você investigaria?', style: textos.titleLarge),
+                Text(
+                  'Qual caminho você investigaria?',
+                  style: textos.titleLarge,
+                ),
                 const SizedBox(height: 8),
-                const Text('Escolha uma alternativa para descobrir suas possibilidades e limitações.'),
+                const Text(
+                  'Escolha uma alternativa para descobrir suas possibilidades e limitações.',
+                ),
                 const SizedBox(height: 16),
                 for (final alternativa in cenario.alternativas)
                   Padding(
@@ -89,24 +126,52 @@ class _CenarioPageState extends State<CenarioPage> {
                       selected: _selecionada == alternativa,
                       button: true,
                       child: Card(
-                        color: _selecionada == alternativa ? const Color(0xFFE2F6FC) : Colors.white,
+                        color: _selecionada == alternativa
+                            ? const Color(0xFFE2F6FC)
+                            : Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(color: _selecionada == alternativa ? const Color(0xFF007A96) : const Color(0xFFE0E7F0), width: _selecionada == alternativa ? 2 : 1),
+                          side: BorderSide(
+                            color: _selecionada == alternativa
+                                ? const Color(0xFF007A96)
+                                : const Color(0xFFE0E7F0),
+                            width: _selecionada == alternativa ? 2 : 1,
+                          ),
                         ),
                         child: InkWell(
                           key: Key('alternativa_${alternativa.rotulo}'),
                           borderRadius: BorderRadius.circular(20),
-                          onTap: () => setState(() => _selecionada = alternativa),
+                          onTap: () =>
+                              setState(() => _selecionada = alternativa),
                           child: Padding(
                             padding: const EdgeInsets.all(16),
-                            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                              CircleAvatar(radius: 18, backgroundColor: azulNexo, foregroundColor: Colors.white, child: Text(alternativa.rotulo)),
-                              const SizedBox(width: 12),
-                              Expanded(child: Text(alternativa.descricao, style: textos.bodyLarge)),
-                              const SizedBox(width: 8),
-                              Icon(_selecionada == alternativa ? Icons.check_circle : Icons.radio_button_unchecked, color: _selecionada == alternativa ? azulNexo : textoSecundario),
-                            ]),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                CircleAvatar(
+                                  radius: 18,
+                                  backgroundColor: azulNexo,
+                                  foregroundColor: Colors.white,
+                                  child: Text(alternativa.rotulo),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Text(
+                                    alternativa.descricao,
+                                    style: textos.bodyLarge,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                Icon(
+                                  _selecionada == alternativa
+                                      ? Icons.check_circle
+                                      : Icons.radio_button_unchecked,
+                                  color: _selecionada == alternativa
+                                      ? azulNexo
+                                      : textoSecundario,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -115,7 +180,9 @@ class _CenarioPageState extends State<CenarioPage> {
                 const SizedBox(height: 12),
                 ElevatedButton.icon(
                   key: const Key('ver_consequencia'),
-                  onPressed: _selecionada == null || _abrindoConsequencia ? null : verConsequencia,
+                  onPressed: _selecionada == null || _abrindoConsequencia
+                      ? null
+                      : verConsequencia,
                   icon: const Icon(Icons.arrow_forward_rounded),
                   label: const Text('Ver consequência'),
                 ),

@@ -26,7 +26,9 @@ class _IdentificacaoPageState extends State<IdentificacaoPage> {
     FocusScope.of(context).unfocus();
     final apelido = _apelidoController.text.trim();
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => MapaMissoesPage(apelido: apelido)),
+      MaterialPageRoute(
+        builder: (context) => MapaMissoesPage(apelido: apelido),
+      ),
     );
   }
 
@@ -68,7 +70,10 @@ class _IdentificacaoPageState extends State<IdentificacaoPage> {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    Text('A ciência faz parte\ndas suas escolhas.', style: textos.headlineLarge),
+                    Text(
+                      'A ciência faz parte\ndas suas escolhas.',
+                      style: textos.headlineLarge,
+                    ),
                     const SizedBox(height: 16),
                     Text(
                       'Investigue situações do cotidiano e descubra onde a tecnologia nuclear pode contribuir.',
@@ -79,12 +84,21 @@ class _IdentificacaoPageState extends State<IdentificacaoPage> {
                       spacing: 8,
                       runSpacing: 8,
                       children: [
-                        Chip(avatar: Icon(Icons.explore_outlined, size: 18), label: Text('5 missões')),
-                        Chip(avatar: Icon(Icons.wifi_off_rounded, size: 18), label: Text('Explore offline')),
+                        Chip(
+                          avatar: Icon(Icons.explore_outlined, size: 18),
+                          label: Text('5 missões'),
+                        ),
+                        Chip(
+                          avatar: Icon(Icons.wifi_off_rounded, size: 18),
+                          label: Text('Explore offline'),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 24),
-                    Text('Como podemos chamar você?', style: textos.titleMedium),
+                    Text(
+                      'Como podemos chamar você?',
+                      style: textos.titleMedium,
+                    ),
                     const SizedBox(height: 12),
                     TextFormField(
                       key: const Key('campo_apelido'),
@@ -112,10 +126,19 @@ class _IdentificacaoPageState extends State<IdentificacaoPage> {
                     const Text(
                       'Seu apelido e progresso ficam apenas nesta sessão. Ao reiniciar o aplicativo, você começa uma nova jornada.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 12, height: 1.5, color: textoSecundario),
+                      style: TextStyle(
+                        fontSize: 12,
+                        height: 1.5,
+                        color: textoSecundario,
+                      ),
                     ),
                     const SizedBox(height: 24),
-                    const Center(child: Text('FIAP  •  CHALLENGE 2026', style: TextStyle(fontSize: 11, letterSpacing: 1.4))),
+                    const Center(
+                      child: Text(
+                        'FIAP  •  CHALLENGE 2026',
+                        style: TextStyle(fontSize: 11, letterSpacing: 1.4),
+                      ),
+                    ),
                   ],
                 ),
               ),

@@ -50,29 +50,59 @@ class MissaoCard extends StatelessWidget {
                     color: const Color(0xFFEAF7FB),
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child: Icon(iconeCategoria(cenario.categoria), color: azulNexo),
+                  child: Icon(
+                    iconeCategoria(cenario.categoria),
+                    color: azulNexo,
+                  ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(cenario.categoria.toUpperCase(), style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w800, letterSpacing: 1.3, color: Color(0xFF007A96))),
+                      Text(
+                        cenario.categoria.toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.3,
+                          color: Color(0xFF007A96),
+                        ),
+                      ),
                       const SizedBox(height: 6),
                       Text(cenario.titulo, style: textos.titleMedium),
                       const SizedBox(height: 10),
                       Row(
                         children: [
-                          Icon(concluida ? Icons.check_circle_outline : Icons.explore_outlined, size: 16, color: concluida ? const Color(0xFF176A50) : textoSecundario),
+                          Icon(
+                            concluida
+                                ? Icons.check_circle_outline
+                                : Icons.explore_outlined,
+                            size: 16,
+                            color: concluida
+                                ? const Color(0xFF176A50)
+                                : textoSecundario,
+                          ),
                           const SizedBox(width: 6),
-                          Expanded(child: Text(concluida ? 'Concluída • explorar de novo' : 'Pronta para explorar', style: const TextStyle(fontSize: 12))),
+                          Expanded(
+                            child: Text(
+                              concluida
+                                  ? 'Concluída • explorar de novo'
+                                  : 'Pronta para explorar',
+                              style: const TextStyle(fontSize: 12),
+                            ),
+                          ),
                         ],
                       ),
                     ],
                   ),
                 ),
                 const SizedBox(width: 8),
-                const Icon(Icons.arrow_forward_rounded, size: 20, color: azulNexo),
+                const Icon(
+                  Icons.arrow_forward_rounded,
+                  size: 20,
+                  color: azulNexo,
+                ),
               ],
             ),
           ),
