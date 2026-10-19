@@ -66,7 +66,6 @@ class ResumoProgresso extends StatelessWidget {
             color: cianoNexo,
             backgroundColor: const Color(0xFF355071),
             semanticsLabel: 'Progresso das missões',
-            semanticsValue: '${(progresso * 100).round()} por cento',
           ),
           const SizedBox(height: 16),
           Text(

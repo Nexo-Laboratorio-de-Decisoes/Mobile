@@ -33,6 +33,7 @@ class _MapaMissoesPageState extends State<MapaMissoesPage> {
   }
 
   Future<void> abrirMissao(Cenario cenario) async {
+    ScaffoldMessenger.of(context).removeCurrentSnackBar();
     final decisao = await Navigator.of(context).push<Decisao>(
       MaterialPageRoute(
         builder: (context) =>
@@ -59,6 +60,7 @@ class _MapaMissoesPageState extends State<MapaMissoesPage> {
   }
 
   void abrirProgresso() {
+    ScaffoldMessenger.of(context).removeCurrentSnackBar();
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ProgressoPage(
