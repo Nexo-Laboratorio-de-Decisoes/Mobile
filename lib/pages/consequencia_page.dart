@@ -144,7 +144,12 @@ class ConsequenciaPage extends StatelessWidget {
                 const SizedBox(height: 24),
                 ElevatedButton.icon(
                   key: const Key('concluir_missao'),
-                  onPressed: () => Navigator.of(context).pop(true),
+                  onPressed: () {
+                    // Evita dois retornos se houver toques rápidos na conclusão.
+                    if (ModalRoute.of(context)?.isCurrent == true) {
+                      Navigator.of(context).pop(true);
+                    }
+                  },
                   icon: const Icon(Icons.check_rounded),
                   label: const Text('Concluir missão'),
                 ),

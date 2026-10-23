@@ -12,6 +12,7 @@ class IdentificacaoPage extends StatefulWidget {
 class _IdentificacaoPageState extends State<IdentificacaoPage> {
   final _formKey = GlobalKey<FormState>();
   final _apelidoController = TextEditingController();
+  bool _iniciando = false;
 
   String? validarApelido(String? valor) {
     final apelido = (valor ?? '').trim();
@@ -22,7 +23,8 @@ class _IdentificacaoPageState extends State<IdentificacaoPage> {
   }
 
   void comecarJornada() {
-    if (!_formKey.currentState!.validate()) return;
+    if (_iniciando || !_formKey.currentState!.validate()) return;
+    setState(() => _iniciando = true);
     FocusScope.of(context).unfocus();
     final apelido = _apelidoController.text.trim();
     Navigator.of(context).pushReplacement(
@@ -118,7 +120,7 @@ class _IdentificacaoPageState extends State<IdentificacaoPage> {
                     const SizedBox(height: 24),
                     ElevatedButton.icon(
                       key: const Key('comecar_jornada'),
-                      onPressed: comecarJornada,
+                      onPressed: _iniciando ? null : comecarJornada,
                       icon: const Icon(Icons.arrow_forward_rounded),
                       label: const Text('Começar jornada'),
                     ),
