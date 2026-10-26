@@ -1,7 +1,6 @@
 import 'package:nexo/models/alternativa.dart';
 import 'package:nexo/models/cenario.dart';
 
-// Cenários fictícios. Os IDs permanecem estáveis para o alinhamento do grupo.
 const cenariosMock = <Cenario>[
   Cenario(
     id: 1,

@@ -18,7 +18,6 @@ class MapaMissoesPage extends StatefulWidget {
 }
 
 class _MapaMissoesPageState extends State<MapaMissoesPage> {
-  // A sessão pertence a esta tela. Não há banco nem estado global.
   final List<Decisao> _decisoes = [];
 
   @override
@@ -43,7 +42,7 @@ class _MapaMissoesPageState extends State<MapaMissoesPage> {
     );
     if (!mounted || decisao == null) return;
 
-    // Uma única decisão por cenário: refazer troca a escolha, não soma pontos.
+    // Refazer a missão substitui a decisão anterior.
     setState(() {
       final indice = _decisoes.indexWhere(
         (item) => item.cenarioId == decisao.cenarioId,

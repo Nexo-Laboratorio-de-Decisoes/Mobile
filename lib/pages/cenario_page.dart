@@ -33,7 +33,6 @@ class _CenarioPageState extends State<CenarioPage> {
     );
     if (!mounted) return;
     if (concluiu == true) {
-      // Retorna ao mapa com dados somente depois da confirmação no feedback.
       Navigator.of(context).pop(
         Decisao(
           cenarioId: widget.cenario.id,
