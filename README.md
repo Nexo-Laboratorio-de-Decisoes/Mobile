@@ -12,7 +12,7 @@ Projeto desenvolvido em Flutter para o Challenge FIAP 2026 — Sprint 1 de Mobil
 | 568227 | guialberti2005@gmail.com |
 | 567726 | luizkichimoto@gmail.com |
 | 567918 | lseripieri4@gmail.com |
-| | grochasouzadev@gmail.com |
+| 567023 | grochasouzadev@gmail.com |
 
 ## Como funciona
 
