@@ -2,7 +2,7 @@
 
 O NEXO é um aplicativo educativo para explorar aplicações civis da tecnologia nuclear. Em cinco missões, o usuário analisa situações do cotidiano, escolhe uma alternativa e descobre seus benefícios e limitações.
 
-Projeto desenvolvido em Flutter para o Challenge FIAP 2026 — Sprint 1 de Mobile Application Development, em parceria com a Marinha do Brasil / CTMSP.
+Projeto desenvolvido em Flutter para o Challenge FIAP 2026 — Sprint 1 de Mobile Application Development, com a Amazul como cliente.
 
 ## Equipe
 
@@ -71,7 +71,7 @@ As telas recebem dados pelo construtor. O mapa mantém as decisões da sessão e
 
 ## Demonstração
 
-Vídeo: em breve.
+[Assistir à demonstração do NEXO](https://youtu.be/-xyfkZbGSnE).
 
 ## Referências
 
